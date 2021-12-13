@@ -1,9 +1,21 @@
 {
   "name": "fetchtest",
+  "description": "A fetch wrapper for express testing",
   "version": "1.0.3",
   "license": "MIT",
-  "main": "./dist/lib.js",
-  "types": "./dist/lib.d.ts",
+  "main": "dist/lib.js",
+  "typings": "dist/lib.d.ts",
+  "author": "Joel Podrebarac <joelpodrebar@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ajoelp/fetchtest.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ajoelp/fetchtest/issues"
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "test": "jest",
     "build": "tsc -p tsconfig.build.json"
