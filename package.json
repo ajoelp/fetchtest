@@ -1,5 +1,5 @@
 {
-  "name": "git s",
+  "name": "fetchtest",
   "version": "1.0.0",
   "license": "MIT",
   "main": "./dist/lib.js",
