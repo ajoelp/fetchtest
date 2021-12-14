@@ -7,7 +7,7 @@ require('isomorphic-fetch');
 
 export type RequestMethods = 'get' | 'post' | 'put' | 'patch' | 'delete';
 
-type RequestOptions = {
+export type RequestOptions = {
     headers?: HeadersInit
 }
 
@@ -20,9 +20,11 @@ export class Test {
     defaultHeaders = {
         'Content-Type': 'application/json',
     }
+    private defaultOptions: RequestOptions;
 
-    constructor(app: Server) {
+    constructor(app: Server, defaultOptions: RequestOptions = {}) {
         this.app = app
+        this.defaultOptions = defaultOptions
     }
 
     // Define methods
@@ -55,6 +57,7 @@ export class Test {
             body: method === 'get' ? null : JSON.stringify(body),
             headers: {
                 ...this.defaultHeaders,
+                ...this.defaultOptions.headers,
                 ...options?.headers ?? {}
             }
         })

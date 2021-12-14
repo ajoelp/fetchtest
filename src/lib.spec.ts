@@ -42,6 +42,27 @@ describe('fetchtest', () => {
                 expect(headers).toEqual(expect.objectContaining(reqHeaders));
                 expect(result.status).toEqual(200);
             })
+
+            it('will submit a request with defaultHeaders', async () => {
+                const app = express()
+                let headers = {}
+                app[method]('/', (req, res) => {
+                    headers = {...req.headers}
+                    return res
+                        .status(200)
+                        .json({})
+                });
+                const reqHeaders = {
+                    'authorization': 'Bearer token123',
+                    'accept': 'application/json'
+                }
+                const result = await fetchtest(app, {
+                    headers: reqHeaders
+                })[method]('/')
+                expect(headers).toEqual(expect.objectContaining(reqHeaders));
+                expect(result.status).toEqual(200);
+            })
+
         });
         it.each([
             'post',
