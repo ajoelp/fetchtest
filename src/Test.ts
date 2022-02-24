@@ -13,6 +13,14 @@ export type RequestOptions = {
 
 type BodyType = Record<string, any>
 
+async function tryJson(response: Response) {
+    try {
+        return await response.json()
+    } catch (e) {
+        return null
+    }
+}
+
 export class Test {
     app: Server;
     _server?: Server;
@@ -69,7 +77,9 @@ export class Test {
         return {
             headers: response.headers,
             status: response.status,
-            json: await response.json(),
+            json: await tryJson(response),
+            redirected: response.redirected,
+            url: response.url
         }
     }
 
