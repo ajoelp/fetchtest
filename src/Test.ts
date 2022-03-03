@@ -11,7 +11,7 @@ export type RequestOptions = {
     headers?: HeadersInit
 }
 
-type BodyType = Record<string, any>
+export type BodyType = Record<string, any>
 
 async function tryJson(response: Response) {
     try {

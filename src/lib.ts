@@ -1,5 +1,5 @@
 import http, {RequestListener, Server} from 'http'
-import {RequestOptions, Test} from "./Test";
+import {RequestOptions, Test, BodyType } from "./Test";
 
 export default function fetchtest(app: RequestListener | Server, defaultOptions: RequestOptions = {}) {
 
@@ -9,3 +9,5 @@ export default function fetchtest(app: RequestListener | Server, defaultOptions:
 
     return new Test(app, defaultOptions);
 }
+
+export { RequestOptions, BodyType }
