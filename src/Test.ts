@@ -13,6 +13,15 @@ export type RequestOptions = {
 
 export type BodyType = Record<string, any>
 
+export type RequestResponse = {
+    headers: Headers,
+    status: number,
+    json: any | null,
+    redirected: boolean,
+    url: string
+}
+
+
 async function tryJson(response: Response) {
     try {
         return await response.json()
@@ -73,7 +82,7 @@ export class Test {
         return Test.buildResponse(result);
     }
 
-    private static async buildResponse(response: Response) {
+    private static async buildResponse(response: Response): Promise<RequestResponse> {
         return {
             headers: response.headers,
             status: response.status,
