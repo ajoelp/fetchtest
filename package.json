@@ -1,7 +1,7 @@
 {
   "name": "fetchtest",
   "description": "A fetch wrapper for express testing",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "license": "MIT",
   "main": "dist/lib.js",
   "typings": "dist/lib.d.ts",
