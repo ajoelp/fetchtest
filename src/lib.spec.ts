@@ -104,6 +104,4 @@ describe('fetchtest', () => {
             expect(result.status).toEqual(200);
         })
     })
-
-
 })
